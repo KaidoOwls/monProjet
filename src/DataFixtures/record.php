@@ -9,7 +9,7 @@
  */
 
 /* `velvet`.`artist` */
-$artist = array(
+$art = array(
   array('id' => '3','title' => 'Diouf Sabrar','picture' => 'bite','name' => 'Queens Of The Stone Age','url' => 'https://qotsa.com/')
 );
 
