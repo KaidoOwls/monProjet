@@ -10,10 +10,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 
 class ContactController extends AbstractController
 {
+    #[Assert\Email(message: "Veuillez saisir une adresse e-mail valide.")]
+    private $email;
+
     #[Route('/contact', name: 'app_contact')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -33,7 +38,7 @@ class ContactController extends AbstractController
             $entityManager->flush();
 
             // Redirection vers accueil
-            return $this->redirectToRoute('app_accueil');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('contact/index.html.twig', [
@@ -41,4 +46,5 @@ class ContactController extends AbstractController
               'form' => $form
         ]);
     }
+    
 }
