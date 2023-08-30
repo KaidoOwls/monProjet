@@ -5,16 +5,29 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
-//use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Mime\Part\DataPart;
+use Symfony\Component\Mime\Part\File;
+
 
 class MailerController extends AbstractController
 {
     #[Route('/email')]
     public function sendEmail(MailerInterface $mailer): Response
     {
+
+        $email = (new Email())
+        // ...
+        ->addPart(new DataPart(new File('/path/to/documents/terms-of-use.pdf')))
+        // vous pouvez, si vous le souhaitez, demander aux clients mail d'afficher un certain nom pour le fichier 
+        ->addPart(new DataPart(new File('/path/to/documents/privacy.pdf'), 'Privacy Policy'))
+        // vous pouvez aussi spécifier le type de document (autrement, il est deviné)
+        ->addPart(new DataPart(new File('/path/to/documents/contract.doc'), 'Contract', 'application/msword'))
+    ;
+
         $email = (new TemplatedEmail())
             ->from('hello@example.com')
 //            ->to('you@example.com')
