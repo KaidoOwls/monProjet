@@ -4,7 +4,7 @@ twig:
     # ...
 
  # config/packages/twig.yaml
-twig:
+#twig:
     # ...
 
     paths:
@@ -12,9 +12,9 @@ twig:
         '%kernel.project_dir%/assets/images': images
 
 # config/packages/twig.yaml
-twig:
+#twig:
     # ...
 
-    paths:
+   # paths:
         # point this wherever your css files live
-        '%kernel.project_dir%/assets/styles': styles
+       # '%kernel.project_dir%/assets/styles': styles
