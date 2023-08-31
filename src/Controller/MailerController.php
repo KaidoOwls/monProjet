@@ -51,5 +51,9 @@ class MailerController extends AbstractController
         $mailer->send($email);
 
         // ...
+        return $this->render('emails/signup.html.twig', [
+            'controller_name' => 'MailerController',
+            'emails' => $mailer
+        ]);
     }
 }
