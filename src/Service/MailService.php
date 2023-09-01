@@ -1,17 +1,24 @@
 <?php
 
-use Symfony\Component\Mailer\MailerInterface;
+namespace App\Service;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+//...
 
 class MailService
 {
-    private $mailer;
+    //On injecte l'interface ParameterBag
 
-    //On injecte dans le constructeur le MailerInterface
+    private $paramBag;
+    public function __construct(ParameterBagInterface $paramBag){
 
-    public function __construct(MailerInterface $mailer){
-        $this->mailer = $mailer;
+        $this->paramBag = $paramBag;
     }
 
+    public function sendMail($expediteur, $destinataire, $sujet, $message){
+
+    }
+//On se sert du parameterBag et du nom du paramètre ('image_directory') pour récupèrer le chemin du dossier "images"
+        $dossiers_images = $this->paramBag->get('images_directory');
 //...
 
 }
