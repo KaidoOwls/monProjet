@@ -18,7 +18,10 @@ class MailService
 
     }
 //On se sert du parameterBag et du nom du paramètre ('image_directory') pour récupèrer le chemin du dossier "images"
+        
+        
         $dossiers_images = $this->paramBag->get('images_directory');
+        
 //...
 
 }
