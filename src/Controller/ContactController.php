@@ -27,7 +27,7 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
    
-            return $this->redirectToRoute('home/index.html.twig'); // Exemple de redirection
+            return $this->redirectToRoute('ContactController.php'); // Exemple de redirection
         }
 
         return $this->render('contact/index.html.twig', [
