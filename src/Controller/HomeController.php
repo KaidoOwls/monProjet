@@ -35,8 +35,8 @@ class HomeController extends AbstractController
           //on appelle le repository pour accéder à la fonction
           $artistes = $this->artistRepo->getSomeArtists("Neil");
 
-          //on teste le contenu de la variable $artistes : dd() veut dire Dump and Die
-          dd($artistes); 
+          //on teste le contenu de la variable $artistes : dd() veut dire Dump and Die DD veut dire qu'a l'instant t tout ce qui compose la variable artiste
+
 
        // ...    
 

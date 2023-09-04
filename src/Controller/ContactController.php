@@ -26,19 +26,13 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //on crée une instance de Contact
-            $message = new Contact();
-            // Traitement des données du formulaire
-            //...
-            //persistance des données
-
-            $entityManager->persist($message);
-            $entityManager->flush();
-
-            //envoi de mail avec notre service MailService
-            $email = $ms->sendMail('hello@example.com', $message->getEmail(), $message->getObjet(), $message->getMessage() );
-//            dd($message->getEmail());
-
+   
+            return $this->redirectToRoute('home/index.html.twig'); // Exemple de redirection
         }
+
+        return $this->render('contact/index.html.twig', [
+            'form' => $form->createView(),
+            // Autres données à passer à votre modèle Twig
+        ]);
     }
 }
